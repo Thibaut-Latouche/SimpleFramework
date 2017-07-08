@@ -1,0 +1,276 @@
+/* Tabs panel */
+.tabbable-panel {  
+  padding: 10px;
+}
+
+/* Default mode */
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #737373;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 4px solid #f3565d;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;  
+  padding: 0;
+}
+.portlet .tabbable-line > .tab-content {
+  padding-bottom: 0;
+}
+
+/* Below tabs mode */
+
+.tabbable-line.tabs-below > .nav-tabs > li {
+  border-top: 4px solid transparent;
+}
+.tabbable-line.tabs-below > .nav-tabs > li > a {
+  margin-top: 0;
+}
+.tabbable-line.tabs-below > .nav-tabs > li:hover {
+  border-bottom: 0;
+  border-top: 4px solid #fbcdcf;
+}
+.tabbable-line.tabs-below > .nav-tabs > li.active {
+  margin-bottom: -2px;
+  border-bottom: 0;
+  border-top: 4px solid #f3565d;
+}
+.tabbable-line.tabs-below > .tab-content {
+  margin-top: -10px;
+  border-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.sidebar-nav td{
+    color:#fff;
+}
+
+#map-canvas{
+    min-height:500px;
+    min-width: 600px;
+}
+
+/**
+*   Design tableaux - mes parcelles
+*/
+.tableVanne, .table-calendar{
+    font-size:14px;
+}
+
+.tableVanne td, .table-calendar td{
+    padding-top: 4px!important;
+    padding-bottom: 4px!important;
+    margin:0;
+    height: 35px;
+    line-height: 35px;
+}
+
+.itemVanne{
+    margin:8px;
+    width:120px;
+}
+/**
+*   Toggle Menu
+*/
+.icon-toggle-sidebar{
+    font-size:1.4em;
+}
+/**
+*   Compteur d'eau
+*/
+
+.center-compteur{
+    text-align: center;
+}
+
+.libelle-compteur-eau{
+    font-size:17pt;
+}
+
+/**
+*   Sidebar - Menu CSS
+*/
+.sidebar-icon{
+    color: #fff;
+    font-size: 14pt;
+}
+
+.sidebar-libelle{
+    color:#fff;
+    padding-left : 30px;
+    font-size : 11pt;
+}
+
+.sidebar-brand a{
+    color:#fff!important;
+    font-weight:500;
+}
+
+.modal-dialog{
+    z-index: 3000!important;
+}
+
+.loading-weather svg{     
+      fill: #0050A9!important;     
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;  
+}
+
+
+.panel-weather .panel-body{    
+    min-height: 200px;
+}
+
+/**
+* Calendrier CSS programmation
+*/
+.ligne-pro-day, .item-ligne-prog{
+    min-width: 300px;
+}
+
+.plageVanne{
+        position:absolute;
+	height : 15px;
+	background : #428bca;
+	border-radius : 10px; 
+	line-height : 15px; 
+        width:0%;       
+	transition: width 1s ease-in 0s;
+        cursor: pointer;
+}
+
+.table.table-calendar-ui td, .table.table-calendar-ui th{
+    border-right: 1px dashed #999;    
+    font-size: 11pt;
+    padding-right:0;
+    padding-left:0;
+}
+
+.table.table-calendar-ui th{
+    text-align:center;
+}
+
+.table.table-calendar-ui{
+    background-color: #fff;
+}
+
+/**
+*   Main design
+*/
+.container.mainContainer{
+    width: 90%;
+}
+
+/**
+*   Item menu
+*/
+.item-menu-nav{
+    margin: 0 auto;
+}
+
+.item-menu-nav a{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top : 1px dotted #eee;
+}
+
+.item-name-vanne-calendar{
+    text-align: center;
+}
+
+.data-weather table a[data-toggle='tooltip']{
+    color: #0050A9;
+    border-bottom: 1px dotted #0050A9;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.data-weather table{
+    background-color:#fff;
+}
+
+td.line-vanne-name{    
+    font-weight: bold;
+    font-size:11pt;
+}
+
+.ui-state-active{
+    background-color: #e1e1e1;
+}
+
+
+.alert-success{
+   background-color: #242424;
+   color:   #fff;
+   font-size:11pt;
+}
+
+.dropdown-menu.dropdown-programmation{
+    float:right!important;
+    right:0!important;    
+}
+
+.list-vannes-container{margin:20px 0 0 0;color:#fff!important;}
+.list-vannes-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.list-vannes-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.list-vannes-container label .bizcontent{width:100%;}
+.list-vannes-container .btn-group{width:90%}
+.list-vannes-container .btn span.glyphicon{
+    opacity: 0;
+}
+.list-vannes-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+
+.btn-blue{
+    background-color: #00428B;
+}
+
+.btn-green{
+    background-color: #2D902D;
+}
+
+.table-calendar-panel{padding-left:0;padding-right:0}
+.table-calendar-panel td.tb-vanne-line-item{padding-left:0;padding-right:0}
+
+.fa-circle-open{
+   color: #428bca;
+}
