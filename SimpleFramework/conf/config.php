@@ -1,9 +1,9 @@
 <?php
 define("SESSION_NAME","SimpleFramework");
-define("APPLICATION_NAME", "MyFramework/");
+define("APPLICATION_NAME", "SimpleFramework/");
 define('SERVEUR_URL'     , "http://localhost/");
-define("TITLE"           , "MyFramework");
-define("WEB_REPOSITORY"  , "/home/w3rl3gion/web/");
+define("TITLE"           , "Simple Framework");
+define("WEB_REPOSITORY"  , "/var/www/html/");
 define("CONFIG_REPOSITORY", WEB_REPOSITORY.APPLICATION_NAME."conf/");
 /*******************************************************************************
 * Sous-fichiers de configuration
