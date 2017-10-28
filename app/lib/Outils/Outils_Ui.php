@@ -16,8 +16,6 @@ class Outils_Ui {
         $html = ob_get_contents();
         ob_end_clean();
         return $html;
-        unset($smarty);
-        unset($html);
     }
 }
 ?>

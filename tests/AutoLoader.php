@@ -1,7 +1,7 @@
 <?php
 class AutoLoader {
 	
-	static private $classNames = array();
+	static protected $classNames = array();
 	
 	public static function registerDirectory($dirName) {
 		

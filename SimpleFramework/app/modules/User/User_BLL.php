@@ -17,7 +17,7 @@ class User_BLL{
             }
             return User_DAO::load($us);
         } catch (Exception $ex) {          
-            throw new Exception("ERR_USER_BLL_READ");
+            throw new User_Exception("ERR_USER_BLL_READ");
         }
     }
 }

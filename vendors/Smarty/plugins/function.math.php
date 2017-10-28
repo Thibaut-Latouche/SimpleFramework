@@ -63,8 +63,6 @@ function smarty_function_math($params, &$smarty)
         }
     }
 
-    eval("\$smarty_math_result = ".$equation.";");
-
     if (empty($params['format'])) {
         if (empty($params['assign'])) {
             return $smarty_math_result;

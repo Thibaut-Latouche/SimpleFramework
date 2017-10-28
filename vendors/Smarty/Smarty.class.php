@@ -1330,12 +1330,12 @@ class Smarty
      * @return object
      */
     function &get_registered_object($name) {
-        if (!isset($this->_reg_objects[$name]))
-        $this->_trigger_fatal_error("'$name' is not a registered object");
-
-        if (!is_object($this->_reg_objects[$name][0]))
-        $this->_trigger_fatal_error("registered '$name' is not an object");
-
+        if (!isset($this->_reg_objects[$name])){
+             $this->_trigger_fatal_error("'$name' is not a registered object");
+        }
+        if (!is_object($this->_reg_objects[$name][0])){
+            $this->_trigger_fatal_error("registered '$name' is not an object");
+        }       
         return $this->_reg_objects[$name][0];
     }
 
@@ -1627,7 +1627,6 @@ class Smarty
             if(strlen($_resource_name_parts[0]) == 1) {
                 // 1 char is not resource type, but part of filepath
                 $params['resource_type'] = $this->default_resource_type;
-                $params['resource_name'] = $params['resource_name'];
             } else {
                 $params['resource_type'] = $_resource_name_parts[0];
                 $params['resource_name'] = $_resource_name_parts[1];
@@ -1932,7 +1931,7 @@ class Smarty
      */
     function _eval($code, $params=null)
     {
-        return eval($code);
+        //return eval($code);
     }
 
     /**

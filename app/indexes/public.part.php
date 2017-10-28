@@ -1,8 +1,6 @@
 <?php
 switch ($action) {
-
-    default:
-    	var_dump("toto");
-
-}    
+  default:
+    var_dump("toto");
+}
 ?>

@@ -14,9 +14,7 @@ class Outils_Ui {
         $smarty->display($templateName);
         $html = ob_get_contents();
         ob_end_clean();
-        return $html;
-        unset($smarty);
-        unset($html);
+        return $html;      
     }
 }
 ?>

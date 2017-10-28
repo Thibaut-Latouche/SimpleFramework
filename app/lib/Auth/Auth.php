@@ -6,9 +6,14 @@
  */
 class Auth {
 	
-  protected static $auth = null;
-  protected $infos       = array();
-  private static $sql    = "select * from mf_user_app where login=:login";
+  public static $login      = "login";  
+  public static $statut     = "statut";  
+  public static $prenom     = "prenom";
+  public static $phone      = "phone";
+  public static $activated  = "activated";  
+  protected static $auth    = null;
+  protected $infos          = array();
+  protected static $sql       = "select * from mf_user_app where login=:login";
     
   /**
    * Default Constructor
@@ -36,7 +41,7 @@ class Auth {
   public function verify($login, $pass) {
     $db = Outils_Bd::getInstance()->getConnexion();
     $sth = $db->prepare(Auth::$sql);
-    $params = array('login' => $login);
+    $params = array(Auth::$login => $login);
     $sth->execute($params);
     $res = $sth->fetchAll(PDO::FETCH_ASSOC);        
     $this->checkPassword($pass,$res);    
@@ -46,14 +51,14 @@ class Auth {
    * 
    * @param unknown $pass
    * @param unknown $tab
-   * @throws Exception
+   * @throws Auth_Exception
    */
   private function checkPassword($pass,$tab){          
     if (password_verify($pass, $tab[0]["pass"])){   
         $this->addInfosToSesion($tab[0]);        
     }
     else{ 
-        throw new Exception("AUTH_INVALID_PASSWORD");
+        throw new Auth_Exception("AUTH_INVALID_PASSWORD");
     }    
   }
   
@@ -62,28 +67,28 @@ class Auth {
   }
 
   private function addInfosToSesion($tab) {    
-    $this->infos['login']     = $tab["login"];
-    $this->infos['statut']    = $tab["statut"];
+    $this->infos[Auth::$login]     = $tab[Auth::$login];
+    $this->infos[Auth::$statut]    = $tab[Auth::$statut];
     $this->infos['id']        = $tab["id"];
     $this->infos['nom']       = $tab["nom"];
-    $this->infos['prenom']    = $tab["prenom"];
+    $this->infos[Auth::$prenom]    = $tab[Auth::$prenom];
     $this->infos['mail']      = $tab["mail"];
-    $this->infos['phone']     = $tab["phone"];
+    $this->infos[Auth::$phone]     = $tab[Auth::$phone];
     $this->infos['ref']       = $tab["ref"];
-    $this->infos['activated'] = $tab["activated"];
+    $this->infos[Auth::$activated] = $tab[Auth::$activated];
     $this->synchronise();
   }
 
   public function editInfosToSesion($user){
-    $this->infos['login']     = $user->login;
-    $this->infos['statut']    = $user->statut;
+    $this->infos[Auth::login]     = $user->login;
+    $this->infos[Auth::$statut]    = $user->statut;
     $this->infos['id']        = $user->id;
     $this->infos['nom']       = $user->nom;
-    $this->infos['prenom']    = $user->prenom;
+    $this->infos[Auth::$prenom]    = $user->prenom;
     $this->infos['mail']      = $user->mail;
-    $this->infos['phone']     = $user->phone;
+    $this->infos[Auth::$phone]     = $user->phone;
     $this->infos['ref']       = $user->ref;
-    $this->infos['activated'] = $user->activated;
+    $this->infos[Auth::$activated] = $user->activated;
     $this->synchronise();
   }
 
@@ -109,19 +114,19 @@ class Auth {
   }
 
   public function getPrenom() {
-    return Outils::filter($this->infos['prenom'],FILTER_STRING);
+    return Outils::filter($this->infos[Auth::$prenom],FILTER_STRING);
   }
 
   public function getStatut() {
-    if(isset($this->infos['statut'])){
-        return Outils::filter($this->infos['statut'], FILTER_STRING);
+    if(isset($this->infos[Auth::$statut])){
+        return Outils::filter($this->infos[Auth::$statut], FILTER_STRING);
     }else{
         return "";
     }        
   }
 
   public function getLogin() {
-    return Outils::filter($this->infos['login'], FILTER_STRING);
+    return Outils::filter($this->infos[Auth::login], FILTER_STRING);
   }
 
   public function getEmail(){
@@ -132,14 +137,14 @@ class Auth {
     $userInfos = null;
     if(!empty($this->infos)){     
         $userInfos["id"]        = intval($this->infos["id"]);
-        $userInfos['login']     = Outils::filter($this->infos['login']  , FILTER_STRING); 
-        $userInfos['statut']    = Outils::filter($this->infos['statut'] , FILTER_STRING); 
+        $userInfos[Auth::login]     = Outils::filter($this->infos[Auth::login]  , FILTER_STRING); 
+        $userInfos[Auth::$statut]    = Outils::filter($this->infos[Auth::$statut] , FILTER_STRING); 
         $userInfos['nom']       = Outils::filter($this->infos['nom']    , FILTER_STRING); 
-        $userInfos['prenom']    = Outils::filter($this->infos['prenom'] , FILTER_STRING); 
+        $userInfos[Auth::$prenom]    = Outils::filter($this->infos[Auth::$prenom] , FILTER_STRING); 
         $userInfos['mail']      = Outils::filter($this->infos['mail']   , FILTER_STRING); 
-        $userInfos['phone']     = Outils::filter($this->infos['phone']  , FILTER_STRING);
+        $userInfos[Auth::$phone]     = Outils::filter($this->infos[Auth::$phone]  , FILTER_STRING);
         $userInfos['ref']       = Outils::filter($this->infos['ref'] , FILTER_STRING);
-        $userInfos['activated'] = Outils::filter($this->infos['activated']  , FILTER_INT);
+        $userInfos[Auth::$activated] = Outils::filter($this->infos[Auth::$activated]  , FILTER_INT);
     }
     return $userInfos;
   }

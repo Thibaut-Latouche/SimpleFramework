@@ -10,10 +10,12 @@ class User_DAO {
         $arrRslt = array();
         $db = Outils_Bd::getInstance()->getConnexion();
         $sql = "SELECT * FROM sf_users_application WHERE 1=1";
-        if (isset($us->id))
+        if (isset($us->id)){
             $sql .= " and id=$ds->id";
-        if(isset($us->roleId))
+        }
+        if(isset($us->roleId)){
             $sql .= " and role_id=$us->roleId";
+        }
         $sth = $db->query($sql);
         while ($r = $sth->fetch()) {
             $arrRslt[] = User::mapDB($r);

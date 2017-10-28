@@ -14,7 +14,7 @@ class Developer_BLL{
             }
             return Developer_DAO::load($ds);
         } catch (Exception $ex) {
-            throw new Exception("ERR_DEVELOPER_BLL_READ");
+            throw new Developer_Exception("ERR_DEVELOPER_BLL_READ");
         }
     }
 }

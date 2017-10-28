@@ -37,7 +37,9 @@ class Outils_Bd {
       $result = "";  
       for($i=0;$i<count($arrayInClause);$i++){
           $result.="'".$arrayInClause[$i]."'";
-          if($i !=(count($arrayInClause) - 1)) $result .=",";
+          if($i !=(count($arrayInClause) - 1)){
+              $result .=",";
+          }
       }
       return $result;
   }

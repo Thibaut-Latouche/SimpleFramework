@@ -511,8 +511,7 @@ class Smarty_Compiler extends Smarty {
             case 'sectionelse':
                 $this->_push_tag('sectionelse');
                 return "<?php endfor; else: ?>";
-                break;
-
+                
             case '/section':
                 $_open_tag = $this->_pop_tag('section');
                 if ($_open_tag == 'sectionelse')
@@ -523,8 +522,7 @@ class Smarty_Compiler extends Smarty {
             case 'foreach':
                 $this->_push_tag('foreach');
                 return $this->_compile_foreach_start($tag_args);
-                break;
-
+                
             case 'foreachelse':
                 $this->_push_tag('foreachelse');
                 return "<?php endforeach; else: ?>";
@@ -580,12 +578,9 @@ class Smarty_Compiler extends Smarty {
                 return $this->_compile_insert_tag($tag_args);
 
             default:
-                if ($this->_compile_compiler_tag($tag_command, $tag_args, $output)) {
+                if ($this->_compile_compiler_tag($tag_command, $tag_args, $output) || $this->_compile_block_tag($tag_command, $tag_args, $tag_modifier, $output) 
+                        || $this->_compile_custom_tag($tag_command, $tag_args, $tag_modifier, $output)) {
                     return $output;
-                } else if ($this->_compile_block_tag($tag_command, $tag_args, $tag_modifier, $output)) {
-                    return $output;
-                } else if ($this->_compile_custom_tag($tag_command, $tag_args, $tag_modifier, $output)) {
-                    return $output;                    
                 } else {
                     $this->_syntax_error("unrecognized tag '$tag_command'", E_USER_ERROR, __FILE__, __LINE__);
                 }
@@ -1032,7 +1027,7 @@ class Smarty_Compiler extends Smarty {
 
         $arg_list = array();
         foreach($attrs as $arg_name => $arg_value) {
-            if($arg_name != 'file' AND $arg_name != 'once' AND $arg_name != 'assign') {
+            if($arg_name != 'file' && $arg_name != 'once' && $arg_name != 'assign') {
                 if(is_bool($arg_value))
                     $arg_value = $arg_value ? 'true' : 'false';
                 $arg_list[] = "'$arg_name' => $arg_value";

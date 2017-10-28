@@ -14,11 +14,13 @@ class Role_BLL{
             }
             $roles = Role_DAO::load($rs);
             foreach($roles as $role){
-                if($withUsers) $role->setUsers(User_BLL::read(null,$role->getId()));         
+                if($withUsers){
+                    $role->setUsers(User_BLL::read(null,$role->getId()));         
+                }
             }
             return $roles;
         } catch (Exception $ex) {            
-            throw new Exception("ERR_ROLE_BLL_READ");
+            throw new Role_Exception("ERR_ROLE_BLL_READ");
         }
     }
 }
