@@ -12,7 +12,6 @@ $titre = "";
 $c = "";
 $menu="";
 $zoneConnexion="";
-$zone = "";
 $footer = "";
 $sidebar = "";
 $dataPost = null;
