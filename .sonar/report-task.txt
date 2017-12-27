@@ -1,0 +1,5 @@
+projectKey=my:myframework
+serverUrl=http://localhost:9000/sonar
+dashboardUrl=http://localhost:9000/sonar/dashboard/index/my:myframework
+ceTaskId=AV9kddCwJmR_OdSMSWl6
+ceTaskUrl=http://localhost:9000/sonar/api/ce/task?id=AV9kddCwJmR_OdSMSWl6
