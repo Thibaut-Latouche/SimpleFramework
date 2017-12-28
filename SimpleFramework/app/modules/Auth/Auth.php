@@ -13,7 +13,7 @@ class Auth {
   public static $activated  = "activated";  
   protected static $auth    = null;
   protected $infos          = array();
-  protected static $sql       = "select * from sf_users where login=:login";
+  protected static $sql     = "select * from sf_users where login=:login";
     
   /**
    * Default Constructor
@@ -54,7 +54,7 @@ class Auth {
    * @throws Auth_Exception
    */
   private function checkPassword($pass,$tab){          
-    if (password_verify($pass, $tab[0]["pass"])){   
+    if (password_verify($pass, $tab[0]["pass"])){          
         $this->addInfosToSesion($tab[0]);        
     }
     else{ 
@@ -69,25 +69,25 @@ class Auth {
   private function addInfosToSesion($tab) {    
     $this->infos[Auth::$login]     = $tab[Auth::$login];
     $this->infos[Auth::$statut]    = $tab[Auth::$statut];
-    $this->infos['id']        = $tab["id"];
-    $this->infos['nom']       = $tab["nom"];
+    $this->infos['id']             = $tab["id"];
+    $this->infos['nom']            = $tab["nom"];
     $this->infos[Auth::$prenom]    = $tab[Auth::$prenom];
-    $this->infos['mail']      = $tab["mail"];
+    $this->infos['mail']           = $tab["mail"];
     $this->infos[Auth::$phone]     = $tab[Auth::$phone];
-    $this->infos['ref']       = $tab["ref"];
+    $this->infos['ref']            = $tab["ref"];
     $this->infos[Auth::$activated] = $tab[Auth::$activated];
     $this->synchronise();
   }
 
   public function editInfosToSesion($user){
-    $this->infos[Auth::login]     = $user->login;
+    $this->infos[Auth::$login]     = $user->login;
     $this->infos[Auth::$statut]    = $user->statut;
-    $this->infos['id']        = $user->id;
-    $this->infos['nom']       = $user->nom;
+    $this->infos['id']             = $user->id;
+    $this->infos['nom']            = $user->nom;
     $this->infos[Auth::$prenom]    = $user->prenom;
-    $this->infos['mail']      = $user->mail;
+    $this->infos['mail']           = $user->mail;
     $this->infos[Auth::$phone]     = $user->phone;
-    $this->infos['ref']       = $user->ref;
+    $this->infos['ref']            = $user->ref;
     $this->infos[Auth::$activated] = $user->activated;
     $this->synchronise();
   }
@@ -136,14 +136,14 @@ class Auth {
   public function getInfo(){
     $userInfos = null;
     if(!empty($this->infos)){     
-        $userInfos["id"]        = intval($this->infos["id"]);
-        $userInfos[Auth::login]     = Outils::filter($this->infos[Auth::login]  , FILTER_STRING); 
+        $userInfos["id"]             = intval($this->infos["id"]);
+        $userInfos[Auth::$login]     = Outils::filter($this->infos[Auth::$login]  , FILTER_STRING); 
         $userInfos[Auth::$statut]    = Outils::filter($this->infos[Auth::$statut] , FILTER_STRING); 
-        $userInfos['nom']       = Outils::filter($this->infos['nom']    , FILTER_STRING); 
+        $userInfos['nom']            = Outils::filter($this->infos['nom']    , FILTER_STRING); 
         $userInfos[Auth::$prenom]    = Outils::filter($this->infos[Auth::$prenom] , FILTER_STRING); 
-        $userInfos['mail']      = Outils::filter($this->infos['mail']   , FILTER_STRING); 
+        $userInfos['mail']           = Outils::filter($this->infos['mail']   , FILTER_STRING); 
         $userInfos[Auth::$phone]     = Outils::filter($this->infos[Auth::$phone]  , FILTER_STRING);
-        $userInfos['ref']       = Outils::filter($this->infos['ref'] , FILTER_STRING);
+        $userInfos['ref']            = Outils::filter($this->infos['ref'] , FILTER_STRING);
         $userInfos[Auth::$activated] = Outils::filter($this->infos[Auth::$activated]  , FILTER_INT);
     }
     return $userInfos;
