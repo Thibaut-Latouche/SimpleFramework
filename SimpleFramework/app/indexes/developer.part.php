@@ -1,6 +1,7 @@
 <?php
 switch ($action) {
     case "developer":
+        $varArray["history"] = GitHistory::showLastCommits();
         $varArray["countDevelopers"] = count(Developer_BLL::read());
         $varArray["countUsers"] = count(User_BLL::read());
         $c = Outils_Ui::display("homepage/homepage.tpl", $varArray);

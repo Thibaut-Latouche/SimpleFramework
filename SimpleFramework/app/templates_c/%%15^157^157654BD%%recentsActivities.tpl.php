@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2017-06-18 22:09:46
+<?php /* Smarty version 2.6.27, created on 2017-12-28 19:35:23
          compiled from homepage/recentsActivities/recentsActivities.tpl */ ?>
 <div class="row">
     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -25,62 +25,29 @@
             <div class="x_content">
                 <div class="dashboard-widget-content">
                     <ul class="list-unstyled timeline widget">
+                        <?php $_from = $this->_tpl_vars['history']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['historyItem']):
+?>
                         <li>
                             <div class="block">
                                 <div class="block_content">
                                     <h2 class="title">
-                                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                                        <a><?php echo $this->_tpl_vars['historyItem']['hash']; ?>
+</a>
                                     </h2>
                                     <div class="byline">
-                                        <span>13 hours ago</span> by <a>Jane Smith</a>
+                                        <span><?php echo $this->_tpl_vars['historyItem']['date']; ?>
+</span> by <a><?php echo $this->_tpl_vars['historyItem']['author']; ?>
+</a>
                                     </div>
-                                    <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                                    <p class="excerpt">
+                                        <?php echo $this->_tpl_vars['historyItem']['message']; ?>
+
                                     </p>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="block">
-                                <div class="block_content">
-                                    <h2 class="title">
-                                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                    </h2>
-                                    <div class="byline">
-                                        <span>13 hours ago</span> by <a>Jane Smith</a>
-                                    </div>
-                                    <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="block">
-                                <div class="block_content">
-                                    <h2 class="title">
-                                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                    </h2>
-                                    <div class="byline">
-                                        <span>13 hours ago</span> by <a>Jane Smith</a>
-                                    </div>
-                                    <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="block">
-                                <div class="block_content">
-                                    <h2 class="title">
-                                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                    </h2>
-                                    <div class="byline">
-                                        <span>13 hours ago</span> by <a>Jane Smith</a>
-                                    </div>
-                                    <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
+                        <?php endforeach; endif; unset($_from); ?>
                     </ul>
                 </div>
             </div>

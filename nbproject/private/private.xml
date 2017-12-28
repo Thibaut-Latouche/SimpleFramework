@@ -3,50 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Outils/Outils_Ui.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Entities/Entities_DAO.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Entities/Entities_BLL.php</file>
-            <file>file:/var/www/html/MyFramework/tests/AutoLoader.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/User/User_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Developer/Developer_DAO.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Developer/Developer_BLL.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_select_date.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/User/User_DAO.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/User/User_BLL.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_radios.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_checkboxes.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/Smarty.class.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.mailto.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Outils/Outils.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_options.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Developer/Developer_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Outils/Outils_Bd.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/Config_File.class.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Entities/Entities_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/conf/autoload.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Auth/Auth.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Outils/Outils_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Auth/Auth_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Role/Role_BLL.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Outils/Outils_Ui.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Outils/Outils_Bd.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/conf/autoload.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.math.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Outils/Outils_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/conf/config.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Role/Role_Exception.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Auth/Auth.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_image.php</file>
-            <file>file:/var/www/html/MyFramework/conf/conf_path.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_table.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/conf/conf_path.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.html_select_time.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/function.popup.php</file>
-            <file>file:/var/www/html/MyFramework/app/lib/Outils/Outils.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/modules/Role/Role_DAO.php</file>
-            <file>file:/var/www/html/MyFramework/app/indexes/public.part.php</file>
-            <file>file:/var/www/html/MyFramework/SimpleFramework/app/indexes/default.part.php</file>
-            <file>file:/var/www/html/MyFramework/vendors/Smarty/plugins/block.textformat.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/indexes/developer.part.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/indexes/default.part.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/index.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/modules/Auth/Auth.php</file>
+            <file>file:/var/www/html/SimpleFramework/conf/conf_database.php</file>
+            <file>file:/var/www/html/SimpleFramework/index.php</file>
+            <file>file:/var/www/html/SimpleFramework/conf/config.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/ui/pages/public.html.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/conf/config.php</file>
         </group>
     </open-files>
 </project-private>
