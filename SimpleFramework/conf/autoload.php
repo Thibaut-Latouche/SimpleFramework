@@ -1,29 +1,17 @@
 <?php
-/*******************************************************************************
- * AUTOLOAD de l'application
-*******************************************************************************/
-
-class Autoload_Exception extends Exception{
-    
-  public function __construct($message, $code = 0, Exception $previous = null) {
-    parent::__construct($message, $code, $previous);
-  }
-
-   public function __toString() {
-    return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
-  }
-
+function __autoload($class){    
+    $parts      = explode('\\', $class);    
+    $moduleName = $parts[count($parts)-2];
+    //Module       
+    foreach (scandir(MODULES_REPOSITORY . $moduleName ."/") as $file) {   
+      if(strpos($file,".php")){
+        require_once MODULES_REPOSITORY . $moduleName ."/" . $file ;    
+      }
+    }  
+    //Controller
+    foreach(scandir(INDEX_REPOSITORY  ."/") as $file) {   
+      if(strpos($file,".php")){                  
+        require_once INDEX_REPOSITORY ."/" . $file ;    
+      }
+    }  
 }
-
-function __autoload($className) {
-  $tclass = explode('_', $className);
-  $repertoire = $tclass[0];
-  $file = MODULES_REPOSITORY . $repertoire . "/{$className}.php";
-  if (is_file($file)) {
-    require_once($file);
-  }
-  else {
-    throw new Autoload_Exception("Erreur Autoload : le fichier {$file} n'existe pas");
-   }
- }
-?>

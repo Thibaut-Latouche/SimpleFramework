@@ -1,5 +1,5 @@
 <?php
-
+namespace SimpleFramework\Entities;
 /**
  * Entities
  * @author Thibaut Latouche

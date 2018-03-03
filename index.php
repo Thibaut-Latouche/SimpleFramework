@@ -38,9 +38,9 @@ if(isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && $_SERVER['HTTP_X_REQUESTED_WITH
   echo $c;
 }
 else{
-	ob_start();	
-	$html = ob_get_contents();
-	ob_end_clean();
+  ob_start();
+  $html = ob_get_contents();
+  ob_end_clean();
   echo $html;
 }
 

@@ -14,8 +14,8 @@
         <script type="text/javascript" src="app/ui/js/ui/bootstrap.min.js"></script>      
     </head>
     <body>       
-	<div id="main" class="container">
-	<?php echo $c;?>
-	</div>
-    </body>		
+      <div id="main" class="container">
+        <php echo $c;?>
+      </div>
+    </body>
 </html>

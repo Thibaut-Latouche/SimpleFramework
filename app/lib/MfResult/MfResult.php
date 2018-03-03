@@ -6,7 +6,7 @@
  * @author Thibaut Latouche
  */
 class MfResult{
-	
+
     public $isSuccess;
     private $data;
     private $errorMessage;
@@ -49,7 +49,7 @@ class MfResult{
      * @return string
      */
     public function getErrorMessage(){
-    	return $this->errorMessage;
+      return $this->errorMessage;
     }
     
        
@@ -60,9 +60,9 @@ class MfResult{
      */
     public function toJSON(){
         $var = array(
-        		"isSuccess"    => $this->isSuccess,
+        "isSuccess"    => $this->isSuccess,
                 "data"         => $this->data,
-		     	"errorMessage" => $this->errorMessage
+     "errorMessage" => $this->errorMessage
         );
        return json_encode($var);
     }

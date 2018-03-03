@@ -1,6 +1,11 @@
 <?php
+namespace SimpleFramework\User;
+
+use SimpleFramework\Outils\Outils;
+use SimpleFramework\Role\RoleBLL;
 
 class User{
+    
     private $id;
     private $login;
     private $firstname;
@@ -83,7 +88,7 @@ class User{
     }
     
     function setRole($role) {
-        $this->role = Outils::getFirstObject(Role_BLL::read($role));
+        $this->role = Outils::getFirstObject(RoleBLL::read($role));
     }
     
 }

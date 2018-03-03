@@ -1,33 +1,43 @@
 <?php
-
-error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+namespace SimpleFramework;
 require_once("./conf/config.php");
 require_once("./conf/autoload.php");
+
+use SimpleFramework\Auth\Auth;
+use SimpleFramework\Outils\Outils;
+use ReflectionMethod;
+use SimpleFramework\Outils\OutilsUi;
+
 $varArray = array();
-$c = "";
 $sidebar = "";
 $dataPost = null;
 session_start();
 $auth = Auth::getInstance();
 try {
-    $zone = (!$auth->isConnect()) ? "default" : $auth->getStatut();
-    $action = (isset($_GET["a"])) ? Outils::filter($_GET["a"], FILTER_STRING) : $auth->getStatut();
+    $zone = (!$auth->isConnect()) ? "homepage" : $auth->getStatut();
+    $action = (isset($_GET["a"])) ? Outils::filter($_GET["a"], FILTER_STRING) : $zone;
     $postdata = (!empty($_POST)) ? $_POST : array();
     $varArray["action"] = $action;
     switch ($zone) {
         case "developer":
             $index = INDEX_REPOSITORY . "developer.part.php";
-            $sidebar = Outils_Ui::display("menu/sidebar-menu.tpl",$varArray);
+            $sidebar = OutilsUi::display("menu/sidebar-menu.tpl",$varArray);
             $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/developer.html.php";
             break;
         case "default":
         default:
             $index = INDEX_REPOSITORY . "default.part.php";
             $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/public.html.php";
-    }
-    include_once(INDEX_REPOSITORY . $zone . ".part.php");
+    }    
+    $Controller        = "\SimpleFramework\Controller\\" . ucfirst($zone) . "Controller";
+    $CurrentController = new $Controller;
+    if(!method_exists($CurrentController, $action)){
+      $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/error-404.html";
+    }else{
+      $c = $CurrentController->$action();
+    }    
 } catch (Exception $e) {
-    //var_dump($e);die;
+    throw($e);
 }
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
     ob_clean();

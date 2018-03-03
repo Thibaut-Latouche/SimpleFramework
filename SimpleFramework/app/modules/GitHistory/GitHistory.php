@@ -1,14 +1,13 @@
 <?php
+namespace SimpleFramework\GitHistory;
 /**
  * Git History
  */
 class GitHistory {
 
-    public static function showLastCommits($maxLength = 5) {
-        $dir = APP_REPOSITORY;        
-        $output = array();
-        chdir($dir);
-        exec("git log", $output);
+    public static function showLastCommits($maxLength = 5) {                
+        $output = array();        
+        exec("cd ".APP_REPOSITORY." && git log", $output);
         $history = array();
         foreach ($output as $line) {
             if (strpos($line, 'commit') === 0) {

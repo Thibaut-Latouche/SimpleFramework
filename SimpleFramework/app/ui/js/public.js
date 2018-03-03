@@ -10,7 +10,7 @@ var PublicCtrl = function(){
     this.inputPwd    = $("input[type=password]");
     this.formLogin   = $("#formlogin");
     //Others
-    this.urlLogin    = "index.php?a=do-login"; 
+    this.urlLogin    = "index.php?a=doLogin"; 
     this.enterKey    = 13;
     this.init = function(obj){        
 	obj.validForm.click(function(e){

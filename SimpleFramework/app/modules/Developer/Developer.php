@@ -1,4 +1,6 @@
 <?php
+namespace SimpleFramework\Developer;
+
 /**
  * Developer Entity
  * @version 1.0.0

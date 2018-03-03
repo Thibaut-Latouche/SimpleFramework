@@ -1,4 +1,6 @@
 <?php
+namespace SimpleFramework\Outils;
+
 class Outils {
 
     public function session_setValue($key, $value) {
@@ -9,16 +11,8 @@ class Outils {
         return $_SESSION[SESSION_NAME][$key];
     }
 
-    public static function filter($string, $flag) {
-        $result = "";
-        switch ($flag) {
-            case $flag:
-                $result = filter_var($string, $flag);
-                break;
-            default:
-               $result ="";
-        }
-        return $result;
+    public static function filter($string, $flag) {    
+        return filter_var($string, $flag);
     }
 
     public static function loadDictionnary($lang = LANG_APP) {

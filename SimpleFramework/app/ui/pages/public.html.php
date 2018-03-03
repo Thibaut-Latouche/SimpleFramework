@@ -23,7 +23,7 @@
                     <div class="account-wall">
                         <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                              alt="">
-                        <form class="form-signin" method="POST" action="index.php?a=do-login">
+                        <form class="form-signin" method="POST" action="index.php?a=doLogin">
                             <input type="text" class="form-control" name="auth_login" placeholder="Login" required autofocus>
                             <input type="password" class="form-control" name="auth_pass" placeholder="Password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

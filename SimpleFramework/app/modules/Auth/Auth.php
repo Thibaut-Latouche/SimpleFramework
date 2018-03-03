@@ -1,11 +1,16 @@
 <?php
+namespace SimpleFramework\Auth;
+
+use SimpleFramework\Outils\Outils;
+use SimpleFramework\Outils\OutilsBd;
+use \PDO;
+
 /**
- * Auth
  * @copyright Thibaut Latouche, 2015
  * @author Thibaut Latouche
  */
 class Auth {
-	
+
   public static $login      = "login";  
   public static $statut     = "statut";  
   public static $lastname   = "lastname";
@@ -40,7 +45,7 @@ class Auth {
    * @param string $pass
    */
   public function verify($login, $pass) {
-    $db = Outils_Bd::getInstance()->getConnexion();
+    $db = OutilsBd::getInstance()->getConnexion();
     $sth = $db->prepare(Auth::$sql);
     $params = array(Auth::$login => $login);
     $sth->execute($params);
@@ -52,14 +57,14 @@ class Auth {
    * 
    * @param unknown $pass
    * @param unknown $tab
-   * @throws Auth_Exception
+   * @throws AuthException
    */
   private function checkPassword($pass,$tab){          
     if (password_verify($pass, $tab[0]["pass"])){          
         $this->addInfosToSesion($tab[0]);        
     }
     else{ 
-        throw new Auth_Exception("AUTH_INVALID_PASSWORD");
+        throw new AuthException("AUTH_INVALID_PASSWORD");
     }    
   }
   

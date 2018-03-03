@@ -1,6 +1,2 @@
 <?php
-switch ($action) {
-  default:
-    var_dump("toto");
-}
-?>
+  var_dump("toto");

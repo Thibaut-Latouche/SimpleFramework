@@ -1,4 +1,6 @@
 <?php
+namespace SimpleFramework\Role;
+
 /**
  * Role Entity
  * @version 1.0.0
@@ -40,6 +42,5 @@ class Role{
     function setUsers($users) {
         $this->users = $users;
     }
-
     
 }
