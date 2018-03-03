@@ -4,10 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/indexes/developer.part.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/templates/homepage/recentsActivities/recentsActivities.tpl</file>
             <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/indexes/default.part.php</file>
             <file>file:/var/www/html/SimpleFramework/SimpleFramework/index.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/templates/homepage/homepage.tpl</file>
             <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/modules/Auth/Auth.php</file>
             <file>file:/var/www/html/SimpleFramework/conf/conf_database.php</file>
+            <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/modules/GitHistory/GitHistory.php</file>
             <file>file:/var/www/html/SimpleFramework/index.php</file>
             <file>file:/var/www/html/SimpleFramework/conf/config.php</file>
             <file>file:/var/www/html/SimpleFramework/SimpleFramework/app/ui/pages/public.html.php</file>

@@ -8,7 +8,8 @@ class Auth {
 	
   public static $login      = "login";  
   public static $statut     = "statut";  
-  public static $prenom     = "prenom";
+  public static $lastname   = "lastname";
+  public static $firstname  = "firstname";
   public static $phone      = "phone";
   public static $activated  = "activated";  
   protected static $auth    = null;
@@ -70,25 +71,10 @@ class Auth {
     $this->infos[Auth::$login]     = $tab[Auth::$login];
     $this->infos[Auth::$statut]    = $tab[Auth::$statut];
     $this->infos['id']             = $tab["id"];
-    $this->infos['nom']            = $tab["nom"];
-    $this->infos[Auth::$prenom]    = $tab[Auth::$prenom];
+    $this->infos[Auth::$lastname]  = $tab[Auth::$lastname];
+    $this->infos[Auth::$firstname] = $tab[Auth::$firstname];
     $this->infos['mail']           = $tab["mail"];
     $this->infos[Auth::$phone]     = $tab[Auth::$phone];
-    $this->infos['ref']            = $tab["ref"];
-    $this->infos[Auth::$activated] = $tab[Auth::$activated];
-    $this->synchronise();
-  }
-
-  public function editInfosToSesion($user){
-    $this->infos[Auth::$login]     = $user->login;
-    $this->infos[Auth::$statut]    = $user->statut;
-    $this->infos['id']             = $user->id;
-    $this->infos['nom']            = $user->nom;
-    $this->infos[Auth::$prenom]    = $user->prenom;
-    $this->infos['mail']           = $user->mail;
-    $this->infos[Auth::$phone]     = $user->phone;
-    $this->infos['ref']            = $user->ref;
-    $this->infos[Auth::$activated] = $user->activated;
     $this->synchronise();
   }
 
@@ -110,11 +96,11 @@ class Auth {
   }
 
   public function getNom() {
-    return Outils::filter($this->infos['nom'],FILTER_STRING);
+    return Outils::filter($this->infos[Auth::$lastname],FILTER_STRING);
   }
 
-  public function getPrenom() {
-    return Outils::filter($this->infos[Auth::$prenom],FILTER_STRING);
+  public function getPrenom() {    
+    return Outils::filter($this->infos[Auth::$firstname],FILTER_STRING);
   }
 
   public function getStatut() {
@@ -137,14 +123,12 @@ class Auth {
     $userInfos = null;
     if(!empty($this->infos)){     
         $userInfos["id"]             = intval($this->infos["id"]);
-        $userInfos[Auth::$login]     = Outils::filter($this->infos[Auth::$login]  , FILTER_STRING); 
-        $userInfos[Auth::$statut]    = Outils::filter($this->infos[Auth::$statut] , FILTER_STRING); 
-        $userInfos['nom']            = Outils::filter($this->infos['nom']    , FILTER_STRING); 
-        $userInfos[Auth::$prenom]    = Outils::filter($this->infos[Auth::$prenom] , FILTER_STRING); 
-        $userInfos['mail']           = Outils::filter($this->infos['mail']   , FILTER_STRING); 
-        $userInfos[Auth::$phone]     = Outils::filter($this->infos[Auth::$phone]  , FILTER_STRING);
-        $userInfos['ref']            = Outils::filter($this->infos['ref'] , FILTER_STRING);
-        $userInfos[Auth::$activated] = Outils::filter($this->infos[Auth::$activated]  , FILTER_INT);
+        $userInfos[Auth::$login]     = Outils::filter($this->infos[Auth::$login]     , FILTER_STRING); 
+        $userInfos[Auth::$statut]    = Outils::filter($this->infos[Auth::$statut]    , FILTER_STRING); 
+        $userInfos[Auth::$lastname]  = Outils::filter($this->infos[Auth::$lastname]  , FILTER_STRING); 
+        $userInfos[Auth::$firstname] = Outils::filter($this->infos[Auth::$firstname] , FILTER_STRING); 
+        $userInfos['mail']           = Outils::filter($this->infos['mail']           , FILTER_STRING); 
+        $userInfos[Auth::$phone]     = Outils::filter($this->infos[Auth::$phone]     , FILTER_STRING);        
     }
     return $userInfos;
   }

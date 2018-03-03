@@ -5,7 +5,7 @@
 class GitHistory {
 
     public static function showLastCommits($maxLength = 5) {
-        $dir = APP_REPOSITORY;
+        $dir = APP_REPOSITORY;        
         $output = array();
         chdir($dir);
         exec("git log", $output);
@@ -22,7 +22,9 @@ class GitHistory {
             } else if (strpos($line, 'Date') === 0) {
                 $commit['date'] = date("d-m-Y H:i:s",strtotime(substr($line, strlen('Date:'))));
             } else {
-                $commit['message'] .= $line;
+                if(isset($commit['message'])){
+                    $commit['message'] .= $line;
+                }                
             }
         }
         return $history;

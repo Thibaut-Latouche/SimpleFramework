@@ -27,7 +27,7 @@ try {
     }
     include_once(INDEX_REPOSITORY . $zone . ".part.php");
 } catch (Exception $e) {
-    var_dump($e);
+    //var_dump($e);die;
 }
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
     ob_clean();

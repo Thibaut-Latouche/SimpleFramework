@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.27, created on 2017-06-24 10:49:10
+<?php /* Smarty version 2.6.27, created on 2018-03-03 18:16:29
          compiled from menu/sidebar-menu.tpl */ ?>
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-    <div class="menu_section">
-        <h3>General</h3>
+   <div class="menu_section">        
+        <h5>&nbsp;</h5>
         <ul class="nav side-menu">
             <li <?php if ($this->_tpl_vars['action'] == 'developer'): ?>class="active"<?php endif; ?>>
                 <a href="index.php">

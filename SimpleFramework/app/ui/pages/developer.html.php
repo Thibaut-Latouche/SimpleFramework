@@ -19,32 +19,18 @@
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.php" class="site_title">
-                                <i class="fa fa-dashboard"></i>
-                                <span>Workspace !</span>
-                            </a>                         
-                        </div>
-                        
-                        <div class="clearfix"></div>                        
-                        <!-- menu profile quick info -->
-                        <br/>
+                    <div class="left_col scroll-view" style="width:100%;">
                         <div class="profile">
                             <div class="profile_pic">
                                 <img alt="..." class="img-circle profile_img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"/>
                             </div>
                             <div class="profile_info">
-                                <span>Welcome,</span>
+                                <span>Bienvenue,</span>
                                 <h2><?php echo $auth->getPrenom() . " " . $auth->getNom(); ?></h2>
                             </div>
-                        </div>
-                        <!-- /menu profile quick info -->
-
+                        </div>                                           
                         <br />
-
                         <?php echo $sidebar; ?>
-
                         <!-- /menu footer buttons -->
                         <div class="sidebar-footer hidden-small">
                             <a data-toggle="tooltip" data-placement="top" title="Settings">

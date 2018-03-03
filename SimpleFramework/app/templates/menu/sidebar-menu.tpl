@@ -1,6 +1,6 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-    <div class="menu_section">
-        <h3>General</h3>
+   <div class="menu_section">        
+        <h5>&nbsp;</h5>
         <ul class="nav side-menu">
             <li {if $action == "developer"}class="active"{/if}>
                 <a href="index.php">
