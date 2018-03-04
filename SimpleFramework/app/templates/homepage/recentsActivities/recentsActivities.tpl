@@ -32,10 +32,7 @@
                                     </h2>
                                     <div class="byline">
                                         <span>{$historyItem.date}</span> by <a>{$historyItem.author}</a>
-                                    </div>
-                                    <p class="excerpt">
-                                        {$historyItem.message}
-                                    </p>
+                                    </div>                                    
                                 </div>
                             </div>
                         </li>

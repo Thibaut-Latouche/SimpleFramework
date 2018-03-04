@@ -1,40 +1,37 @@
 <?php
-namespace SimpleFramework;
 require_once("./conf/config.php");
 require_once("./conf/autoload.php");
 
 use SimpleFramework\Auth\Auth;
 use SimpleFramework\Outils\Outils;
-use ReflectionMethod;
 use SimpleFramework\Outils\OutilsUi;
 
 $varArray = array();
 $sidebar = "";
+$Controller = null;
 $dataPost = null;
 session_start();
 $auth = Auth::getInstance();
 try {
-    $zone = (!$auth->isConnect()) ? "homepage" : $auth->getStatut();
-    $action = (isset($_GET["a"])) ? Outils::filter($_GET["a"], FILTER_STRING) : $zone;
+    $zone = (!$auth->isConnect()) ? "default" : $auth->getStatut();
+    $action = (isset($_GET["a"])) ? Outils::filter($_GET["a"], FILTER_STRING) : "homepage";
     $postdata = (!empty($_POST)) ? $_POST : array();
-    $varArray["action"] = $action;
+    $varArray["action"] = $action;    
     switch ($zone) {
-        case "developer":
-            $index = INDEX_REPOSITORY . "developer.part.php";
-            $sidebar = OutilsUi::display("menu/sidebar-menu.tpl",$varArray);
-            $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/developer.html.php";
+        case "developer":         
+            $Controller = new \SimpleFramework\Controller\DeveloperController(); 
+            $sidebar    = OutilsUi::display("menu/sidebar-menu.tpl",$varArray);
+            $squelette  = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/developer.html.php";
             break;
         case "default":
-        default:
-            $index = INDEX_REPOSITORY . "default.part.php";
-            $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/public.html.php";
-    }    
-    $Controller        = "\SimpleFramework\Controller\\" . ucfirst($zone) . "Controller";
-    $CurrentController = new $Controller;
-    if(!method_exists($CurrentController, $action)){
+        default:            
+            $Controller = new \SimpleFramework\Controller\DefaultController();
+            $squelette  = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/public.html.php";
+    }          
+    if(!method_exists($Controller, $action)){
       $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/error-404.html";
-    }else{
-      $c = $CurrentController->$action();
+    }else{      
+      $c = $Controller->$action();
     }    
 } catch (Exception $e) {
     throw($e);

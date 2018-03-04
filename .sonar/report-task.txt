@@ -1,5 +1,5 @@
 projectKey=my:myframework
 serverUrl=http://localhost:9000
 dashboardUrl=http://localhost:9000/dashboard/index/my:myframework
-ceTaskId=AWHuNoaaFMq_pCEnj-UG
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWHuNoaaFMq_pCEnj-UG
+ceTaskId=AWHucopsFMq_pCEnj-UI
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWHucopsFMq_pCEnj-UI

@@ -1,5 +1,8 @@
 <?php
-class MFResultTest extends PHPUnit_Framework_TestCase{
+
+use PHPUnit\Framework\TestCase; 
+
+class MFResultTest extends TestCase{
 
   protected $mfResult;
  

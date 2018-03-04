@@ -9,5 +9,5 @@ define('LOG_REPOSITORY'    , SIMPLE_FRAMEWORK_BASE_REPOSITORY. "log/");
 define("MODULES_REPOSITORY", SIMPLE_FRAMEWORK_APP_REPOSITORY. "modules/");
 define('UI_REPOSITORY'     , SIMPLE_FRAMEWORK_APP_REPOSITORY. "ui/"); 
 define('INDEX_REPOSITORY'  , SIMPLE_FRAMEWORK_APP_REPOSITORY. "Controller/");
-define('SMARTY_LIB'        , BASE_FILE . "vendors/Smarty/Smarty.class.php");
+define('SMARTY_LIB'        , BASE_FILE . "vendor/smarty/smarty/libs/Smarty.class.php");
 ?>

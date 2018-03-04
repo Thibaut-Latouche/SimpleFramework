@@ -20,11 +20,7 @@ class GitHistory {
                 $commit['author'] = substr($line, strlen('Author:'));
             } else if (strpos($line, 'Date') === 0) {
                 $commit['date'] = date("d-m-Y H:i:s",strtotime(substr($line, strlen('Date:'))));
-            } else {
-                if(isset($commit['message'])){
-                    $commit['message'] .= $line;
-                }                
-            }
+            } 
         }
         return $history;
     }
