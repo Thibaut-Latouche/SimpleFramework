@@ -8,7 +8,7 @@ define("CONFIG_REPOSITORY", WEB_REPOSITORY.APPLICATION_NAME."conf/");
 /*******************************************************************************
 * Sous-fichiers de configuration
 *******************************************************************************/
-require_once("conf/conf_path.php");
+require_once(__DIR__."/conf_path.php");
 require_once(SIMPLE_FRAMEWORK_CONF_REPOSITORY. "conf_appli.php");
 require_once(CONFIG_REPOSITORY . "conf_database.php");
 require_once(CONFIG_REPOSITORY . "conf_mf.php");

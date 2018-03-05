@@ -3,13 +3,15 @@ require_once("./conf/config.php");
 require_once("./conf/autoload.php");
 
 use SimpleFramework\Auth\Auth;
+use SimpleFramework\Auth\AuthException;
 use SimpleFramework\Outils\Outils;
 use SimpleFramework\Outils\OutilsUi;
 
-$varArray = array();
-$sidebar = "";
+$varArray   = array();
+$sidebar    = "";
+$errors     = "";
 $Controller = null;
-$dataPost = null;
+$dataPost   = null;
 session_start();
 $auth = Auth::getInstance();
 try {
@@ -33,7 +35,9 @@ try {
     }else{      
       $c = $Controller->$action();
     }    
-} catch (Exception $e) {
+} catch(AuthException $ae){
+    $errors = $ae->getMessage();
+}catch (Exception $e) {
     throw($e);
 }
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {

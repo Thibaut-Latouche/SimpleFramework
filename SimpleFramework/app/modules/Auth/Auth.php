@@ -6,20 +6,21 @@ use SimpleFramework\Outils\OutilsBd;
 use \PDO;
 
 /**
+ * Auth Class
  * @copyright Thibaut Latouche, 2015
  * @author Thibaut Latouche
  */
 class Auth {
 
-  public static $login      = "login";  
-  public static $statut     = "statut";  
-  public static $lastname   = "lastname";
-  public static $firstname  = "firstname";
-  public static $phone      = "phone";
-  public static $activated  = "activated";  
-  protected static $auth    = null;
-  protected $infos          = array();
-  protected static $sql     = "select * from sf_users where login=:login";
+  protected static $login      = "login";  
+  protected static $statut     = "statut";  
+  protected static $lastname   = "lastname";
+  protected static $firstname  = "firstname";
+  protected static $phone      = "phone";
+  protected static $activated  = "activated";  
+  protected static $auth       = null;  
+  protected static $sql        = "select * from sf_users where login=:login";
+  protected $infos             = array();
     
   /**
    * Default Constructor
@@ -45,7 +46,7 @@ class Auth {
    * @param string $pass
    */
   public function verify($login, $pass) {
-    $db = OutilsBd::getInstance()->getConnexion();
+    $db = OutilsBd::getInstance()->getConnexion();   
     $sth = $db->prepare(Auth::$sql);
     $params = array(Auth::$login => $login);
     $sth->execute($params);
@@ -60,54 +61,79 @@ class Auth {
    * @throws AuthException
    */
   private function checkPassword($pass,$tab){          
-    if (password_verify($pass, $tab[0]["pass"])){          
+    if (isset($tab[0]) && password_verify($pass, $tab[0]["pass"])){          
         $this->addInfosToSesion($tab[0]);        
     }
     else{ 
-        throw new AuthException("AUTH_INVALID_PASSWORD");
+        throw new AuthException("Identifiants de connexion erronés");
     }    
   }
   
+ /**
+  * Function Synchronize
+  */
   private function synchronise() {
     $_SESSION[SESSION_NAME] = $this->infos;
   }
 
+  /**
+  * Function addInfos In Session
+  */
   private function addInfosToSesion($tab) {    
     $this->infos[Auth::$login]     = $tab[Auth::$login];
     $this->infos[Auth::$statut]    = $tab[Auth::$statut];
     $this->infos['id']             = $tab["id"];
     $this->infos[Auth::$lastname]  = $tab[Auth::$lastname];
     $this->infos[Auth::$firstname] = $tab[Auth::$firstname];
-    $this->infos['mail']           = $tab["mail"];
+    $this->infos['email']          = $tab["email"];
     $this->infos[Auth::$phone]     = $tab[Auth::$phone];
     $this->synchronise();
   }
 
+  /**
+  * Function isConnect
+  */
   public function isConnect() {    
     return !empty($this->infos);
   }
 
+  /**
+  * Function quit
+  */
   public function quit(){
-    session_destroy();
+    session_unset();
     $this->infos = array();
     $this->synchronise();
   }
 
-  /*****************************************************************************
-  * PUBLIC ACCESORS
-  *****************************************************************************/
+ /**
+  * Function getId
+  * @return integer 
+  */
   public function getId() {
     return Outils::filter($this->infos['id'],FILTER_INT);
   }
 
+ /**
+  * Function getNom
+  * @return string 
+  */
   public function getNom() {
     return Outils::filter($this->infos[Auth::$lastname],FILTER_STRING);
   }
 
+ /**
+  * Function getPrenom
+  * @return string 
+  */
   public function getPrenom() {    
     return Outils::filter($this->infos[Auth::$firstname],FILTER_STRING);
   }
 
+ /**
+  * Function getStatut
+  * @return string 
+  */
   public function getStatut() {
     if(isset($this->infos[Auth::$statut])){
         return Outils::filter($this->infos[Auth::$statut], FILTER_STRING);
@@ -116,26 +142,21 @@ class Auth {
     }        
   }
 
+ /**
+  * Function getLogin
+  * @return string 
+  */
   public function getLogin() {
-    return Outils::filter($this->infos[Auth::login], FILTER_STRING);
+    return Outils::filter($this->infos[Auth::$login], FILTER_STRING);
   }
 
+ /**
+  * Function getEmail
+  * @return string 
+  */
   public function getEmail(){
-    return Outils::filter($this->infos['mail'], FILTER_STRING);
+    return Outils::filter($this->infos['email'], FILTER_STRING);
   }  
-
-  public function getInfo(){
-    $userInfos = null;
-    if(!empty($this->infos)){     
-        $userInfos["id"]             = intval($this->infos["id"]);
-        $userInfos[Auth::$login]     = Outils::filter($this->infos[Auth::$login]     , FILTER_STRING); 
-        $userInfos[Auth::$statut]    = Outils::filter($this->infos[Auth::$statut]    , FILTER_STRING); 
-        $userInfos[Auth::$lastname]  = Outils::filter($this->infos[Auth::$lastname]  , FILTER_STRING); 
-        $userInfos[Auth::$firstname] = Outils::filter($this->infos[Auth::$firstname] , FILTER_STRING); 
-        $userInfos['mail']           = Outils::filter($this->infos['mail']           , FILTER_STRING); 
-        $userInfos[Auth::$phone]     = Outils::filter($this->infos[Auth::$phone]     , FILTER_STRING);        
-    }
-    return $userInfos;
-  }
+ 
 }
 ?>
