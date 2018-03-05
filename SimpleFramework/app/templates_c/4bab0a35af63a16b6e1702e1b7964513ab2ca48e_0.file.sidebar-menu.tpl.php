@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-03-04 01:32:58
+/* Smarty version 3.1.31, created on 2018-03-05 17:32:36
   from "/var/www/html/SimpleFramework/SimpleFramework/app/templates/menu/sidebar-menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a9b3eba9661f9_07184190',
+  'unifunc' => 'content_5a9d7124296143_50455872',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4bab0a35af63a16b6e1702e1b7964513ab2ca48e' => 
     array (
       0 => '/var/www/html/SimpleFramework/SimpleFramework/app/templates/menu/sidebar-menu.tpl',
-      1 => 1520097388,
+      1 => 1520267544,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a9b3eba9661f9_07184190 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a9d7124296143_50455872 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
    <div class="menu_section">        
         <h5>&nbsp;</h5>
         <ul class="nav side-menu">
-            <li <?php if ($_smarty_tpl->tpl_vars['action']->value == "developer") {?>class="active"<?php }?>>
+            <li <?php if ($_smarty_tpl->tpl_vars['action']->value == "homepage") {?>class="active"<?php }?>>
                 <a href="index.php">
                     <i class="fa fa-home"></i> Home 
                 </a>                  

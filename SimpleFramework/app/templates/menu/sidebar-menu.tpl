@@ -2,7 +2,7 @@
    <div class="menu_section">        
         <h5>&nbsp;</h5>
         <ul class="nav side-menu">
-            <li {if $action == "developer"}class="active"{/if}>
+            <li {if $action == "homepage"}class="active"{/if}>
                 <a href="index.php">
                     <i class="fa fa-home"></i> Home 
                 </a>                  

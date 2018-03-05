@@ -11,7 +11,7 @@ use SimpleFramework\Outils\OutilsUi;
 
 class DeveloperController extends DefaultController{
 
-    public function varArray(){      
+    public function homepage(){      
       $varArray = array();
       $varArray["history"]         = GitHistory::showLastCommits();
       $varArray["countDevelopers"] = count(DeveloperBLL::read());

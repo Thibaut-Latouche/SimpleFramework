@@ -32,7 +32,7 @@ try {
     }          
     if(!method_exists($Controller, $action)){
       $squelette = SIMPLE_FRAMEWORK_APP_REPOSITORY . "ui/pages/error-404.html";
-    }else{      
+    }else{              
       $c = $Controller->$action();
     }    
 } catch(AuthException $ae){

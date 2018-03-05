@@ -1,9 +1,7 @@
 <?php
 class AutoLoader {
  
-    static private $classNames = array();
- 
-    /**
+     /**
      * Store the filename (sans extension) & full path of all ".php" files found
      */
     public static function registerDirectory($dirName) {

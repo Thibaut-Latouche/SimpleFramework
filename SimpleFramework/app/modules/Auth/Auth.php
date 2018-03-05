@@ -17,6 +17,7 @@ class Auth {
   protected static $lastname   = "lastname";
   protected static $firstname  = "firstname";
   protected static $phone      = "phone";
+  protected static $email      = "email";
   protected static $activated  = "activated";  
   protected static $auth       = null;  
   protected static $sql        = "select * from sf_users where login=:login";
@@ -85,7 +86,7 @@ class Auth {
     $this->infos['id']             = $tab["id"];
     $this->infos[Auth::$lastname]  = $tab[Auth::$lastname];
     $this->infos[Auth::$firstname] = $tab[Auth::$firstname];
-    $this->infos['email']          = $tab["email"];
+    $this->infos[Auth::$email]     = $tab[Auth::$email];
     $this->infos[Auth::$phone]     = $tab[Auth::$phone];
     $this->synchronise();
   }
@@ -155,7 +156,7 @@ class Auth {
   * @return string 
   */
   public function getEmail(){
-    return Outils::filter($this->infos['email'], FILTER_STRING);
+    return Outils::filter($this->infos[Auth::$email], FILTER_STRING);
   }  
  
 }
