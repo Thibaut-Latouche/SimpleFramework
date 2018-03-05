@@ -1,0 +1,78 @@
+<?php
+
+namespace SimpleFramework\test\Auth;
+
+use SimpleFramework\Auth\Auth;
+use SimpleFramework\Auth\AuthException;
+use PHPUnit\DbUnit\TestCaseTrait;
+use PHPUnit\Framework\TestCase;
+use SimpleFramework\Outils\OutilsBd;
+use SimpleFramework\User\UserBLL;
+use SimpleFramework\Test\AbstractDatabaseTestCase;
+use \PDO;
+
+class AuthTest extends TestCase {
+
+    use TestCaseTrait;    
+    
+    protected $AuthService;
+
+    // only instantiate pdo once for test clean-up/fixture load
+    static private $pdo = null;
+
+    // only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test
+    private $conn = null;
+
+    final public function getConnection()
+    {
+        if ($this->conn === null) {
+            if (self::$pdo == null) {
+                self::$pdo = new PDO('sqlite::memory:');
+            }
+            $this->conn = $this->createDefaultDBConnection(self::$pdo, ':memory:');
+        }
+
+        return $this->conn;
+    }
+
+    /**
+     * @return PHPUnit_Extensions_Database_DataSet_IDataSet
+     */
+    public function getDataSet()
+    {        
+        $queryTable = $this->getConnection()->createQueryTable(
+            'sf_users', 'SELECT * FROM sf_users'
+        );
+        $ds1 = $this->createFlatXmlDataSet(dirname(__FILE__).'/_files/auth.xml');
+        $compositeDs = new PHPUnit_Extensions_Database_DataSet_CompositeDataSet();
+        $compositeDs->addDataSet($ds1);
+        return $compositeDs;
+    }
+
+    public function setUp() {                                  
+        $this->AuthService = Auth::getInstance();
+        
+    }
+
+
+    public function testLaunchExceptionWhenLoginIsUncorrect() {
+        $this->expectException(AuthException::class);                
+        $this->AuthService->verify("aqlkfjsdfksdlfsdf", "dsfvsfdsdfsf");
+        $tableNames = ['sf_users'];
+        $dataSet = $this->getConnection()->createDataSet($tableNames);
+    }
+    /*
+    public function testCorrectLogin() {
+        $this->AuthService->verify("root", "root");
+        $this->assertTrue($this->AuthService->isConnect());
+        $this->assertEquals($this->AuthService->getLogin(), "root");
+    }
+
+    public function testLogout() {
+        $this->AuthService->verify("root", "root");
+        $this->assertTrue($this->AuthService->isConnect());
+        $this->AuthService->quit();
+        $this->assertFalse($this->AuthService->isConnect());
+    }*/
+
+}
