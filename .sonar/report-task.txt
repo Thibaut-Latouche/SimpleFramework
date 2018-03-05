@@ -1,5 +1,5 @@
 projectKey=my:SimpleFramework
 serverUrl=http://localhost:9000
 dashboardUrl=http://localhost:9000/dashboard/index/my:SimpleFramework
-ceTaskId=AWH2-s_mxQHVvFzvpH-6
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWH2-s_mxQHVvFzvpH-6
+ceTaskId=AWH3BB4CxQHVvFzvpH-7
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWH3BB4CxQHVvFzvpH-7

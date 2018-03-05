@@ -10,15 +10,9 @@ class OutilsBd {
   protected $connexion;
 
   private function __construct() {
-      if(isset($_ENV["APP_ENV"]) && $_ENV["APP_ENV"] == "testing"){
-         $this->connexion = new PDO('sqlite::memory:');
-         $this->connexion->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-         $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-      }else{
-        $this->connexion = new PDO(PDO_DSN, USER, PASSWD);
-        $this->connexion->query("SET NAMES utf8");
-        $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-      }      
+    $this->connexion = new PDO(PDO_DSN, USER, PASSWD);
+    $this->connexion->query("SET NAMES utf8");
+    $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
   }
 
   private function __clone() {}

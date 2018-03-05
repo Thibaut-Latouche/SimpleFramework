@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-    <sf_users id="1" login="root" pass="$2y$10$0qm4iMyAvXTdkR97a5mIWeuqtR1OMVPHkQzFbYVg8agJJGeYCjIiu" statut="developer" firstname="thibaut" />    
-    <sf_users id="2" login="test" pass="$2y$10$0qm4iMyAvXTdkR97a5mIWeuqtR1OMVPHkQzFbYVg8agJJGeYCjIiu" statut="developer" firstname="" />  
-</dataset>
